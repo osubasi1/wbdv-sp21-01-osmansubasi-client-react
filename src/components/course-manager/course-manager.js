@@ -68,6 +68,7 @@ class CourseManager extends React.Component {
     render() {
         return (
             <div>
+
                 <Router>
                     <Route path="/courses/table">
                         <CourseHeader
@@ -95,7 +96,13 @@ class CourseManager extends React.Component {
                             title={this.title}
                         />
                     </Route>
-                    <Route path="/courses/editor"
+                    <Route path={[
+                        "/courses/editor/:courseId",
+                        "/courses/editor/:courseId/:moduleId",
+                        "/courses/editor/:courseId/:moduleId/:lessonId",
+                        "/courses/editor/:courseId/:moduleId/:lessonId/:topicId",
+                    ]}
+                           exact={true}
                            render={(props) => <CourseEditor {...props}/>}>
                     </Route>
                 </Router>

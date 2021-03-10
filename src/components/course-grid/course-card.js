@@ -37,7 +37,7 @@ const CourseCard = (
                 </Link>
                 {
                     !editing &&
-                    <Link to="/courses/editor" className="course-title">
+                    <Link to={`/courses/editor/${course._id}`} className="course-title">
                         {title}
                     </Link>
 

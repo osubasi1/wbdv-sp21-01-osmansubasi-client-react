@@ -1,6 +1,7 @@
 body {
     background-color: cadetblue;
-}
+    padding-top: 85px;
+ }
 
 .header {
     padding-top: 15px;
@@ -8,7 +9,13 @@ body {
     background: darkslategray;
     /*font-weight: white;*/
 }
+.course-editor-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: darkslategray;
+    font-size: 20px;
 
+}
 .new-course-btn {
     border-radius: 50% !important;
     background-color: indianred;
@@ -19,6 +26,7 @@ body {
     margin-top: 1px;
     padding: 15px;
     font-weight: bold;
+
 }
 
 
@@ -26,12 +34,34 @@ body {
     width: 240px !important;
     margin-right: 5px
 }
-
+.cross-editor{
+    font-size: 30px;
+    color: beige;
+    padding-right: 10px;
+    padding-left: 10px;
+}
 .new-course-btn-bottom {
     width: 50px;
     height: 50px;
     font-size: 25px;
     margin: 30px;
+}
+.course-editor-nav .nav-item .nav-link{
+    color: beige !important;
+}
+
+.course-editor-nav .nav-item{
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+.click-title:hover{
+    cursor: pointer;
+}
+.course-editor-nav .nav-item.active{
+    background-color: rgba(0,0,0,.3);
 }
 .navbar-brand{
     color: beige !important;
@@ -101,6 +131,37 @@ body {
 
 .course-title-list:hover {
     text-decoration: none;
+}
+
+.module-list{
+    background: rgba(0,0,0,.3);
+    color: whitesmoke;
+
+}
+
+
+.topic-list{
+    background-color: gainsboro;
+    padding:30px;
+}
+
+.module-list-pill{
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left:5px;
+}
+
+.module-list-pill .nav-link{
+    background-color: rgba(0,0,0,.3);
+    color:whitesmoke !important;
+}
+
+.click-title:hover{
+    cursor: pointer;
+}
+
+.module-list-pill .nav-link.active, .topic-pill-list .nav-link.active{
+    background-color:#56bc8a;
 }
 
 @media screen and (min-width: 768px) {
