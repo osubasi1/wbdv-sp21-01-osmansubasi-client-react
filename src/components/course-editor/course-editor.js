@@ -36,9 +36,9 @@ const CourseEditor = ({history}) => {
 
                 <nav className="navbar navbar-expand-sm  navbar-expand-md fixed-top navbar-light course-editor-header ">
                     <span>
-                        <a href="/" className="mr-2 mt-1">
-                        <i onClick={() => history.goBack()} className="fas fa-times cross-editor"/>
-                        </a>
+                        {/*<a href= {history.goBack} className="mr-2 mt-1">*/}
+                        <Link to = {`/courses/${layout}`} className="fas fa-times cross-editor"/>
+                        {/*</a>*/}
 
                     </span>
                     <span className="course-name float-right cross-editor">

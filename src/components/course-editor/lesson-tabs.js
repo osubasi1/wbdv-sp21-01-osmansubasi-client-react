@@ -22,7 +22,7 @@ const LessonTabs = (
         deleteLesson,
         lessonName = 'New Lesson'
     }) => {
-    const {courseId, moduleId, lessonId} = useParams();
+    const {layout, courseId, moduleId, lessonId} = useParams();
     useEffect(() => {
         if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
             findLessonsForModule(moduleId)
@@ -39,7 +39,7 @@ const LessonTabs = (
                                         <a className="nav-link ">
                                         <EditableItem
                                             //active={lesson._id === lessonId}
-                                            to={`/courses/editor/${courseId}/${moduleId}/${lesson._id}`}
+                                            to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                             updateItem={updateLesson}
                                             deleteItem={deleteLesson}
                                             item={lesson}/>
@@ -79,12 +79,15 @@ const dtpm = (dispatch) => ({
                                       }))
     },
     createLesson: (moduleId, lessonName) => {
+        if (moduleId === undefined){
+            alert(" Please select a module to add lesson")
+        } else {
         lessonService
             .createLesson(moduleId, {title: lessonName})
             .then(lesson => dispatch({
                                          type: CREATE_LESSON,
                                          lesson
-                                     }))
+                                     }))}
     },
 
     deleteLesson: (item) =>

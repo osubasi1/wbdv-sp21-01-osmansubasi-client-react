@@ -32,12 +32,12 @@ const CourseCard = (
             <div className="card-body">
 
                 <img src={``}/>
-                <Link to="/courses/editor">
+                <Link to={`/courses/grid/edit/${course._id}`}>
                     {/*{course.title}*/}
                 </Link>
                 {
                     !editing &&
-                    <Link to={`/courses/editor/${course._id}`} className="course-title">
+                    <Link to={`/courses/grid/edit/${course._id}`}>
                         {title}
                     </Link>
 

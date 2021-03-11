@@ -18,7 +18,7 @@ const EditableItem = (
                 !editing &&
                 <>
                     {/*<Link className={` ${active ? 'active' : ''}`} to={to}>*/}
-                    <Link  to={to}>
+                    <Link  to={to} className = "course-title-list">
                         {item.title} {JSON.stringify(active)}
                     </Link>
                     <i onClick={() => setEditing(true)} className="fa fa-edit float-right mt-1 ml-3 mr-2 click-title"/>

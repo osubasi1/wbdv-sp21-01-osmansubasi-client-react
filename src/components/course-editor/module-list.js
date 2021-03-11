@@ -17,7 +17,7 @@ const ModuleList = (
         moduleName = 'New Module',
         placeHolder = "New Module"
     }) => {
-    const { courseId, moduleId} = useParams();
+    const {layout, courseId, moduleId} = useParams();
     useEffect(() => {
         findModulesForCourse(courseId)
     }, [])
@@ -31,7 +31,7 @@ const ModuleList = (
                                       <a className={`list-group-item ${module._id === moduleId
                                                                         ? 'nav-link active mr-2 mb-3': 'nav-link mr-2 mb-3'}`}>
                                           <EditableItem
-                                              to={`/courses/editor/${courseId}/${module._id}`}
+                                              to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                                               updateItem={updateModule}
                                               deleteItem={deleteModule}
                                               // active={true}

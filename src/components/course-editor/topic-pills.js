@@ -16,7 +16,7 @@ const TopicPills = (
         topicName = "New Topic"
     }
 ) => {
-    const {moduleId, lessonId, topicId} = useParams();
+    const {layout, moduleId, lessonId, topicId, courseId} = useParams();
     useEffect(() => {
         if(lessonId !== "undefined" && typeof lessonId !== "undefined") {
             findTopicsForLesson(lessonId)
@@ -34,7 +34,8 @@ const TopicPills = (
                             <EditableItem
                                 item={topic}
                                 deleteItem={deleteTopic}
-                                updateItem={updateTopic}/>
+                                updateItem={updateTopic}
+                                to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}/>
                         </a>
                     </li>
                     )
@@ -65,12 +66,15 @@ const stpm = (state) => {
 
 const dtpm = (dispatch) => ({
     createTopic: (lessonId, topicName) => {
+        if (lessonId === undefined){
+            alert("Please first select a lesson to add topic")
+        }else{
         topicsService.createTopic(lessonId, {title: topicName})
             .then(topic =>
                       dispatch({
                                    type: CREATE_TOPIC,
                                    topic: topic
-                               }))
+                               }))}
     },
 
     deleteTopic: (item) => {
