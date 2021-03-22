@@ -2,9 +2,10 @@ import React from 'react'
 import CourseTable from "../course-table/course-table";
 import CourseGrid from "../course-grid/course-grid";
 import CourseEditor from "../course-editor/course-editor";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, useHistory} from "react-router-dom";
 import courseService, {findAllCourses} from "../../services/course-service";
 import CourseHeader from "../course-header/course-header";
+import historyContext from "react-router/modules/HistoryContext";
 
 class CourseManager extends React.Component {
     newCourse = {
@@ -17,7 +18,6 @@ class CourseManager extends React.Component {
         courses: [],
 
     }
-
     getCurrentDate = (separator = '-') => {
         let newDate = new Date()
         let date = newDate.getDate();
@@ -27,7 +27,6 @@ class CourseManager extends React.Component {
             `${month < 10 ? `0${month}` : `${month}`}${separator}${date}${separator}${year}`
         )
     }
-
     updateCourse = (course) => {
         courseService.updateCourse(course._id, course)
             .then(status => this.setState((prevState) => ({
@@ -68,7 +67,6 @@ class CourseManager extends React.Component {
     render() {
         return (
             <div>
-
                 <Router>
                     <Route path="/courses/table"
                            exact={true}>
@@ -105,7 +103,8 @@ class CourseManager extends React.Component {
                         "/courses/:layout/edit/:courseId",
                         "/courses/:layout/edit/:courseId/modules/:moduleId",
                         "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
-                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets/:widgetId"
                     ]}
                            exact={true}
                            render={(props) => <CourseEditor {...props}/>}>
